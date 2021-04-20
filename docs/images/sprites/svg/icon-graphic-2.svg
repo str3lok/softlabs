@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="442" height="683" viewBox="0 0 442 683">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f15a24;
+        fill-rule: evenodd;
+        opacity: 0.1;
+        filter: url(#filter);
+      }
+    </style>
+    <filter id="filter" x="1897" y="305" width="442" height="683" filterUnits="userSpaceOnUse">
+      <feFlood result="flood" flood-color="#00ff72"/>
+      <feComposite result="composite" operator="in" in2="SourceGraphic"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <path id="Rectangle_2_copy_13_graphic_2" data-name="Rectangle 2 copy 13 graphic 2" class="cls-1" d="M1897,983.218h97.12v3.5H1897v-3.5ZM1994.61,988l69.4-77.969-1.75-3.03-69.4,77.969ZM2064,906.218l97.12,30v3.5l-97.12-30v-3.5ZM2161.61,941l177.4-632.969L2337.26,305l-177.4,632.969Z" transform="translate(-1897 -305)"/>
+</svg>
