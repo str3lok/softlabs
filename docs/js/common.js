@@ -110,20 +110,21 @@ try {
  // Inputmask("+7 999 999 9999").mask("input[type=tel]");
 } catch (e) {}
 
-function destroyScrollPane() {
+function destroyScrollPane(element) {
 	var apis = [];
-	$('.scroll-pane').each(
+	$('.'+element).each(
 		function()	{
-			$(this).removeClass('scrollPaneInit');
-			$(this).data('jsp').destroy();
+			apis.push($(this).removeClass('scrollPaneInit').data('jsp').destroy());
+			// $(this).removeClass('scrollPaneInit');
+			// $(this).data('jsp').destroy();
 		}		
 	)
 	return false;
 }
 
-function initialiseScrollPane() {
+function initialiseScrollPane(element) {
 	var apis = [];
-	$('.scroll-pane').each(
+	$('.'+element).each(
 		function()	{
 			apis.push($(this).addClass('scrollPaneInit').jScrollPane({autoReinitialise: true}).data().jsp);
 		}		
@@ -137,7 +138,7 @@ function loadPage() {
 	var windowWidth = $(window).outerWidth(); 
 	var windowHeight = $(window).outerHeight();
 
-	$('.page__content').addClass('loading');
+	$('body').addClass('loading');
 
 	orientationdevice(windowWidth, windowHeight);
 
@@ -153,7 +154,7 @@ function loadPage() {
 	},2000);	
 
 	try { 
-		initialiseScrollPane();	 
+		initialiseScrollPane('scroll-pane');	 
 	} catch (e) {} 
 
 }//end loadPage

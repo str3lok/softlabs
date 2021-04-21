@@ -3,42 +3,27 @@ $(function() {
 }); //- end ready
 
 
-function destroyScrollPaneIndex() {
-	var apis = [];
-	$('.scrollPaneIndex').each(
-		function()	{
-			$(this).removeClass('scrollPaneInit');
-			$(this).data('jsp').destroy();
-		}		
-	)
-	return false;
-}
-
-function initialiseScrollPaneIndex() {
-	var apis = [];
-	$('.scrollPaneIndex').each(
-		function()	{
-			apis.push($(this).addClass('scrollPaneInit').jScrollPane({autoReinitialise: true}).data().jsp);
-		}		
-	)
-	return false;
-}
-
-
 function loadPageIndex() {
 	var windowWidthIndex = $(window).outerWidth(); 
 	var windowHeightIndex = $(window).outerHeight();
 
 	if((windowWidthIndex >= 768) && (windowWidthIndex <= 991) && (windowHeightIndex <= 900)) {
-		initialiseScrollPaneIndex();
+		try { initialiseScrollPane('scrollPaneIndex');	} catch (e) {} 		
 	}
 	if((windowWidthIndex >= 768) && (windowWidthIndex <= 991) && (windowHeightIndex >= 900)) {
-		destroyScrollPaneIndex();
+		try { destroyScrollPane('scrollPaneIndex');	} catch (e) {} 							
 	}
+	
+	// if( (windowWidthIndex <= 767) && ($('body').hasClass('landscape')) ) {
+	// 	try { initialiseScrollPane('page__content');	} catch (e) {} 				
+	// }	
 
+	if( (windowWidthIndex <= 767) && ($('body').hasClass('portrait')) ) {
 		try {
-
-		} catch (e) {}
+			// destroyScrollPane('page__content');	
+			destroyScrollPane('scrollPaneIndex');	
+		} catch (e) {} 		
+	}	
 
 
 }//end loadPageIndex
@@ -50,16 +35,23 @@ function resizePageIndex() {
 	var windowHeightIndex = $(window).outerHeight();
 
 	if((windowWidthIndex >= 768) && (windowWidthIndex <= 991) && (windowHeightIndex <= 900)) {
-		initialiseScrollPaneIndex();
+			try { initialiseScrollPane('scrollPaneIndex');	} catch (e) {} 
 	}
 	if((windowWidthIndex >= 768) && (windowWidthIndex <= 991) && (windowHeightIndex >= 900)) {
-		destroyScrollPaneIndex();
+		try { destroyScrollPane('scrollPaneIndex');	} catch (e) {} 
 	}	
 
-try {
-	
+	// if( (windowWidthIndex <= 767) && ($('body').hasClass('landscape')) ) {
+	// 	try { initialiseScrollPane('page__content');	} catch (e) {} 			
+	// }	
 
-		} catch (e) {}
+	if( (windowWidthIndex <= 767) && ($('body').hasClass('portrait')) ) {
+		try {
+			// destroyScrollPane('page__content');	
+			destroyScrollPane('scrollPaneIndex');	
+		} catch (e) {} 		
+	}	
+
 
 }//end resizePageIndex
 window.addEventListener("resize", resizePageIndex);
