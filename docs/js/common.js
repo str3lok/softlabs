@@ -154,7 +154,7 @@ function loadPage() {
 	},2000);	
 
 	try { 
-		initialiseScrollPane('scroll-pane');	 
+		$('.menuScrollPane').jScrollPane({autoReinitialise: true});	
 	} catch (e) {} 
 
 }//end loadPage
